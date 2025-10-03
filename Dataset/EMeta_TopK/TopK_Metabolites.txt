@@ -1,0 +1,32 @@
+RT.MZ.ID	Strain	KEGG	Identifier
+3.52_97.06486		C00414	cyclohexanone
+1.32_98.023762		C07272	maleimide
+1.03_105.018342		C00258	glycerate
+1.27_116.034319			N-acetylglycine
+4.73_116.04973		C00463	indole
+1.05_119.034024			glycoaldehyde
+1.05_131.034104		C00489	glutarate
+1.06_133.049778		C04272	"(R)-2,3-dihydroxy-3-methylbutanoate"
+1.06_133.049778		C04039	"2,3-dihydroxy-3-methylbutanoate"
+1.28_145.013469		C00026	oxoglutaric acid
+1.03_149.044708		C11476	L-arabinose
+3.52_159.065573		C02656	pimelic acid
+1.05_163.060404		C00586	2-deoxy-d-glucose
+3.92_167.034225		C06672	vanillic acid
+2.42_167.034301		C01161	"3,4-dihydroxyphenylacetate"
+5.62_175.039498		C09268	"herniarin"
+3.72_197.044956		C10833	syringate
+1.48_218.10292		C00864	pantothenate
+1.02_267.071809		C19792	2-O-(alpha-D-glucopyranosyl)-D-glycerate
+1.02_267.071809		C11544	alpha-mannosylglycerate
+1.01_146.092771		C01035	4-guanidinobutanoate
+1.03_116.034809		C01596	maleamate
+1.05_98.024382		C07272	maleimide
+1.04_118.050454			N-acetylglycine
+1.9_295.115861		C03411	N-glycosyl-L-asparagine
+4.4_287.171867		C10749	ammothamnine
+1.47_245.100185		C13708	3-isobutyl-1-methyxanthine
+1.03_103.039633		C00164	acetoacetate
+5.78_319.081943		C15504	demethylsulochrin
+2.23_274.140135		C20916	tabtoxin biosynthesis intermediate 6
+1.5_279.10797			"N-(2-methylpent-2-enylideneamino)-2,4-dinitroaniline"

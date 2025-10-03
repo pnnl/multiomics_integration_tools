@@ -1,0 +1,298 @@
+---
+title: "JACA"
+author: "Flores, Javier E & Degnan, David J"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(JACA) # devtools::install_github("Pennisetum/JACA", force = TRUE)
+library(tidyverse)
+library(data.table)
+library(kneedle) # devtools::install_github("etam4260/kneedle")
+library(tidymodels)
+library(fastshap)
+library(shapviz)
+library(tidymodels)
+
+seed = 2825
+set.seed(seed)
+```
+
+## Format Multiomics Data
+
+JACA assumes samples are rows and columns are the features, and requires a list
+of data.frames. 
+
+```{r}
+transpose_df <- function(x) {
+  x %>%
+    pivot_longer(2:ncol(.)) %>% 
+    rename(Sample = name) %>% 
+    pivot_wider(names_from = Feature, id_cols = Sample) %>%
+    select(-Sample) %>%
+    as.matrix()
+}
+
+# Load datasets 
+microbiome <- fread("../../Dataset/Scaled/16S_Edata.csv")
+metap <- fread("../../Dataset/Scaled/Metaproteomics.csv")
+metab_pos <- fread("../../Dataset/Scaled/Metabolomics_Positive.csv")
+metab_neg <- fread("../../Dataset/Scaled/Metabolomics_Negative.csv")
+
+# Make list of input matrices
+omicsX <- list(
+  "16S" = transpose_df(microbiome),
+  "metaproteomics" = transpose_df(metap), 
+  "metabolomics positive" = transpose_df(metab_pos),
+  "metabolomics negative" = transpose_df(metab_neg)
+)
+
+# Make response matrix
+responseY <- model.matrix(~matrix(c(rep("00wk", 3), rep("post-00wk", 9)), ncol = 1)-1)
+colnames(responseY) <- c("00wk", "post-00wk")
+```
+
+## Fine Tune JACA Model
+
+```{r}
+## Define test metrics 
+#test_metrics <- metric_set(pr_auc)
+#
+## Load existing resampling schema
+#resamp_data <- readRDS("../MOFA/splits.RDS")
+#
+## Extract the samples retained
+#retained_samples <- lapply(resamp_data$splits, function(x) {x$in_id})
+#
+## Save iteration info 
+#iter_info <- list()
+#
+## Create a data.frame of JACA values to tune over
+#jaca_params <- expand.grid(alpha = c(0.5, 0.6, 0.7),
+#                           lambda_d = exp(seq(log(1), log(1e-01), length.out = 3)), 
+#                           rho = seq(0.01, 1, length = 3))
+#
+## Define neural net for tuning JACA
+#mod_nn <- parsnip::mlp(hidden_units = tune::tune(),
+#                       penalty = tune::tune(),
+#                       epochs = tune::tune()) %>%
+#  parsnip::set_engine("nnet") %>%
+#  parsnip::set_mode("classification")
+#nn_grid <- dials::grid_regular(dials::hidden_units(),
+#                               dials::penalty(),
+#                               dials::epochs(),
+#                               levels = 3)
+#tictoc::tic()
+#alt_mod_nn <- list()
+#for(i in 1:nrow(nn_grid)){
+#  alt_mod_nn[[i]] <- parsnip::mlp(hidden_units = !!eval(nn_grid$hidden_units[i]),
+#                                  penalty = !!eval(nn_grid$penalty[i]),
+#                                  epochs = !!eval(nn_grid$epochs[i])) %>%
+#    parsnip::set_engine("nnet") %>%
+#    parsnip::set_mode("classification")
+#}
+#names(alt_mod_nn) <- paste0("nn_", 1:length(alt_mod_nn))
+#
+## Tune model
+#iter_info <- vector("list", length = length(retained_samples))
+#
+#for(i in 1:length(retained_samples)){
+#  
+#  keep_idx <- retained_samples[[i]]
+#  
+#  cvdat <- lapply(omicsX, function(x, idx){
+#    x[idx,]
+#  }, idx = keep_idx)
+#  
+#  cvtestdat <- lapply(omicsX, function(x, idx){
+#    x[-idx,]
+#  }, idx = keep_idx)
+#  
+#  cvresponseY <- responseY[keep_idx,]
+#  cvtestresponseY <- responseY[-keep_idx,]
+#  
+#  perf_info <- vector("list", length = nrow(jaca_params))
+#  for(j in 1:nrow(jaca_params)){
+#    
+#    cv_jacaparams <- jaca_params[j,]
+#    
+#    cv_mod <- jacaTrain(Z = cvresponseY, 
+#                        X_list = cvdat, 
+#                        # Note that here, lambda must be a vector
+#                        # with each element corresponding to one of
+#                        # the data views in X_list. However, I am unsure
+#                        # of how this relates to the tuning versions of
+#                        # this function which outputs a single lambda. 
+#                        lambda = rep(cv_jacaparams$lambda_d, times = length(cvdat)),
+#                        rho = cv_jacaparams$rho,
+#                        missing = FALSE,
+#                        alpha = cv_jacaparams$alpha,
+#                        kmax = 100000,
+#                        eps = 1e-06,
+#                        verbose = FALSE)
+#    
+#    score_list <- vector("list", length = length(cvdat))
+#    score_list_test <- vector("list", length = length(cvtestdat))
+#    for(k in 1:length(cvdat)){
+#      score_list[[k]] <- cvdat[[k]]%*%cv_mod[[k]]
+#      score_list_test[[k]] <- cvtestdat[[k]]%*%cv_mod[[k]]
+#    }
+#    
+#    score_df <- Reduce("cbind.data.frame", score_list) %>%
+#      setNames(paste0("V", 1:length(cvdat))) %>%
+#      dplyr::mutate(
+#        group = lapply(cvresponseY[,1], function(x) {
+#          ifelse(x == 1, "00wk", "post-00wk")
+#        }) %>% unlist()
+#      ) %>%
+#      dplyr::relocate(group) 
+#    
+#    score_df_test <- Reduce("cbind.data.frame", score_list_test) %>%
+#      setNames(paste0("V", 1:length(cvtestdat))) %>%
+#      dplyr::mutate(
+#        group = lapply(cvtestresponseY[,1], function(x) {
+#          ifelse(x == 1, "00wk", "post-00wk")
+#        }) %>% unlist()
+#      ) %>%
+#      dplyr::relocate(group) 
+#    
+#    # Define model recipe 
+#    tune_rec <- recipes::recipe(group ~ ., data = score_df) 
+#    
+#    alt_wfs <- workflowsets::workflow_set(
+#      preproc = list("all" = tune_rec),
+#      models = c(alt_mod_nn)
+#    )
+#    
+#    iter_seq <- seq_along(alt_wfs$wflow_id)
+#    iter_res <- vector("list", length = length(iter_seq))
+#    for(k in iter_seq){
+#      fit1 <- workflowsets::extract_workflow(alt_wfs, alt_wfs$wflow_id[[k]]) %>%
+#        fit(score_df) 
+#      
+#      iter_res[[k]] <- fit1 %>% 
+#        predict(score_df_test) %>%
+#        dplyr::bind_cols(predict(fit1, score_df_test, type = "prob")) %>%
+#        dplyr::bind_cols(score_df_test %>% 
+#                           mutate(group = factor(group, levels = c("00wk", "post-00wk"))) %>% 
+#                           dplyr::select(group)) %>%
+#        test_metrics(truth = group, .pred_00wk, estimate = .pred_class) %>%
+#        dplyr::mutate(wf_id = alt_wfs$wflow_id[k])
+#    }
+#    perf_info[[j]] <- Reduce("rbind", iter_res) %>%
+#      dplyr::mutate(jaca_alpha = cv_jacaparams$alpha,
+#                    jaca_lambda_d = cv_jacaparams$lambda_d,
+#                    jaca_rho = cv_jacaparams$rho) %>%
+#      dplyr::mutate(wf_id2 = paste0(wf_id, "_", j))
+#  }
+#  
+#  temp <- Reduce("rbind", perf_info) %>%
+#    dplyr::mutate(cv_id = i)
+#  
+#  iter_info[[i]] <- temp
+#}
+```
+
+Determine best JACA model.
+
+```{r}
+#summary_tune_info <- Reduce("rbind", iter_info) %>%
+#  dplyr::group_by(wf_id2, .metric) %>%
+#  dplyr::mutate(avg_metric = mean(.estimate, na.rm = TRUE)) %>%
+#  dplyr::select(-.estimate, -.estimator, -cv_id) %>%
+#  dplyr::distinct()
+#
+## The first row is the "best" model. Note that there are several ties. 
+#summary_tune_info_prauc <- summary_tune_info %>%
+#  dplyr::filter(.metric == "pr_auc") %>%
+#  dplyr::arrange(dplyr::desc(avg_metric)) %>%
+#  dplyr::left_join(nn_grid %>%
+#                     dplyr::mutate(wf_id = paste0("all_nn_", 1:nrow(.)))) 
+#final_tune <- summary_tune_info_prauc[1,]  
+#summary_tune_info_prauc
+```
+
+Apply final tuning parameters and save model. 
+
+```{r}
+#  .metric wf_id    jaca_alpha jaca_lambda_d jaca_rho wf_id2     avg_metric hidden_units      penalty epochs
+#  <chr>   <chr>         <dbl>         <dbl>    <dbl> <chr>           <dbl>        <int>        <dbl>  <int>
+# pr_auc  all_nn_2        0.5           0.1     0.01 all_nn_1_7          1            1 0.0000000001     10
+#final_jacamod <- jacaTrain(Z = responseY, 
+#                           X_list = omicsX, 
+#                           lambda = rep(final_tune$jaca_lambda_d[1], 
+#                                        times = length(omicsX)),
+#                           rho = final_tune$jaca_rho[1],
+#                           missing = FALSE,
+#                           alpha = final_tune$jaca_alpha[1],
+#                           kmax = 100000,
+#                           eps = 1e-06,
+#                           verbose = FALSE)
+#saveRDS(final_jacamod, "final_jaca_mod.RDS")
+final_jacamod <- readRDS("final_jaca_mod.RDS")
+```
+
+Here, there is not a U matrix and factors. 
+
+## Construct V Matrix
+
+```{r}
+# Construct the V Matrix
+v_mat <- do.call(rbind, final_jacamod) %>%
+  data.frame() %>%
+  `colnames<-`(c("Weight")) %>%
+  mutate(
+    Factor = "Factor1",
+    Feature = c(microbiome$Feature, metap$Feature, metab_pos$Feature, metab_neg$Feature),
+    View = c(rep("16S", nrow(microbiome)), 
+             rep("metaproteomics", nrow(metap)),
+             rep("metabolomics positive", nrow(metab_pos)), 
+             rep("metabolomics negative", nrow(metab_neg)))
+  ) %>%
+  select(Factor, Weight, Feature, View)
+
+fwrite(v_mat, "../../Comparison/v_matrix/JACA_vmat.csv", quote = F, row.names = F)
+
+v_mat
+```
+
+## Detect Top Features with Kneedle
+
+```{r}
+kneedle_df <- v_mat %>%
+  select(Weight, View, Feature) %>%
+  mutate(`Absolute Weight` = abs(Weight)) %>%
+  arrange(-`Absolute Weight`) %>%
+  mutate(Rank = 1:nrow(.)) 
+knee <- kneedle(kneedle_df$Rank, kneedle_df$`Absolute Weight`)
+
+fwrite(kneedle_df %>% select(View, Feature, `Absolute Weight`, Rank), "../../Comparison/kneedle_df/JACA_kneedle.csv", quote = F, row.names = F)
+
+# Let's plot
+ggplot(kneedle_df, aes(x = Rank, y = `Absolute Weight`, color = View)) +
+  geom_point() +
+  theme_bw() +
+  geom_hline(yintercept = knee[2], linetype = "dashed") +
+  ggtitle("JACA") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom")
+```
+
+```{r}
+kneedle_df %>%
+  filter(Rank <= knee[1]) %>%
+  select(View, Feature, `Absolute Weight`, Rank) %>%
+  fwrite("../../Comparison/TopK/JACA_TopK.csv", quote = F, row.names = F)
+```
+
+```{r}
+kneedle_df %>%
+  filter(Rank <= knee[1]) %>%
+  select(View, Feature, `Absolute Weight`, Rank)
+```
+
+
+
+
+
+

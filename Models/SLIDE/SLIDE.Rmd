@@ -1,0 +1,195 @@
+---
+title: "SLIDE"
+author: "Flores, Javier E & Degnan, David J"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(SLIDE) # devtools::install_github("irinagain/SLIDE", force = TRUE)
+library(tidyverse)
+library(data.table)
+library(kneedle) # devtools::install_github("etam4260/kneedle")
+library(tidymodels)
+library(fastshap)
+library(shapviz)
+library(tidymodels)
+
+seed = 2825
+set.seed(seed)
+```
+
+## Format Multiomics Data
+
+SLIDE assumes samples are rows and columns are the features.
+
+```{r}
+# Load datasets 
+microbiome <- fread("../../Dataset/Scaled/16S_Edata.csv")
+metap <- fread("../../Dataset/Scaled/Metaproteomics.csv")
+metab_pos <- fread("../../Dataset/Scaled/Metabolomics_Positive.csv")
+metab_neg <- fread("../../Dataset/Scaled/Metabolomics_Negative.csv")
+
+# Load, transpose, and add groups. Use pivot_longer and pivot_wider since t() can
+# change data types. 
+slide_df <- rbind(microbiome, metap, metab_pos, metab_neg) %>%
+  pivot_longer(2:ncol(.)) %>%
+  rename(Sample = name) %>%
+  pivot_wider(id_cols = Sample, names_from = Feature) %>%
+  dplyr::select(-Sample) %>%
+  mutate(group = c(rep("00wk", 3), rep("post-00wk", 9))) %>%
+  relocate(group)
+```
+
+## Fine Tune Slide Model
+
+```{r}
+## Define resampling schema
+#resamp_data <- readRDS("../MOFA/splits.RDS")
+#
+## Extract the samples retained
+#retained_samples <- lapply(resamp_data$splits, function(x) {x$in_id})
+#
+## Save iteration info 
+#iter_info <- list()
+#
+## Iterate through SLIDE fine tuning
+#for(i in 1:length(retained_samples)){
+#  
+#  # Extract out subsample 
+#  tempdata <- slide_df[retained_samples[[i]],]
+#  
+#  # Run SLIDE models
+#  slide_mod <- slide(
+#    
+#    center = TRUE, # Data is already scaled; however, algorithm did not run under center = FALSE
+#    
+#    # Use the temporary dataframe
+#    X = tempdata %>% dplyr::select(-group) %>% as.matrix(.),
+#                    
+#    # pvec contains the size of each ome, which is the same as the dataframe minus 
+#    # the biomolecule identifier column
+#    pvec = c(nrow(microbiome), nrow(metap), nrow(metab_pos), nrow(metab_neg))
+#    
+#  )
+#  
+#  # Next, extract S to observe its stability over these iterations.
+#  temp <- data.frame(t(slide_mod$S)) %>%
+#    setNames(c("D1", "D2", "D3", "D4"))
+#  var_translation <- vector("character", length = nrow(temp))
+#  
+#  for(j in 1:nrow(temp)){
+#    vec_ones <- temp[j,]
+#    var_translation[j] <- paste0(names(vec_ones)[which(vec_ones == 1)], collapse = "_")
+#  }
+#  temp <- temp %>%
+#    dplyr::mutate(var_trans = var_translation) %>%
+#    dplyr::group_by(var_trans) %>%
+#    dplyr::mutate(var_trans_count = dplyr::row_number()) %>%
+#    dplyr::mutate(var_trans_final = paste(var_trans, var_trans_count, sep = "_")) %>%
+#    dplyr::ungroup() %>%
+#    dplyr::select(-var_trans, -var_trans_count) %>%
+#    dplyr::rename(var_name = var_trans_final) %>%
+#    dplyr::mutate(iter = i)
+#  
+#  iter_info[[i]] <- temp
+#}
+#
+## Aggregating iter_info
+#iter_info <- Reduce("rbind", iter_info)
+#
+## Reconstruct final S based on which var_names appear > 50%
+#Svars <- names(which(table(iter_info$var_name)/max(iter_info$iter)*100 > 50))
+#Svars <- Svars[order(Svars, decreasing = TRUE)]
+#finalS <- matrix(0, nrow = 4, ncol = length(Svars))
+#for(i in 1:length(Svars)){
+#  temp <- strsplit(Svars[i], "_")[[1]]
+#  temp <- gsub("D", "", temp[-length(temp)])
+#  finalS[as.numeric(temp), i] <- 1
+#}
+#
+## Build final slide model before tuning for classification
+#final_slide_mod <- slide_givenS(
+#  X = slide_df %>% dplyr::select(-group) %>% as.matrix(.),
+#  pvec = c(nrow(microbiome), nrow(metap), nrow(metab_pos), nrow(metab_neg)),
+#  S = finalS
+#)
+#
+#saveRDS(final_slide_mod, "final_slide_mod.RDS")
+```
+
+## Build U Matrix
+
+```{r}
+final_slide_mod <- readRDS("final_slide_mod.RDS")
+u_mat <- final_slide_mod$U %>%
+  as.data.frame() %>%
+  rename(Factor1 = V1) %>%
+  mutate(group = c(rep("00wk", 3), rep("post-00wk", 9))) %>%
+  relocate(group) %>%
+  mutate(group = as.factor(group))
+fwrite(u_mat, "../../Comparison/u_matrix/SLIDE_umat.csv", quote = F, row.names = F)
+u_mat
+```
+
+## Determine Top Factors
+
+Since there is only one factor returned, there is no need to identify the top factor.
+
+## Construct V Matrix
+
+```{r}
+# Construct the V Matrix
+v_mat <- final_slide_mod$V %>% data.frame()
+colnames(v_mat) <- "Weight"
+
+v_mat <- v_mat %>%
+  mutate(
+    Feature = colnames(slide_df)[2:ncol(slide_df)],
+    View = c(rep("16S", nrow(microbiome)), 
+             rep("metaproteomics", nrow(metap)),
+             rep("metabolomics positive", nrow(metab_pos)), 
+             rep("metabolomics negative", nrow(metab_neg)))
+  ) %>%
+  mutate(Factor = "Factor1") %>%
+  select(Factor, Weight, Feature, View)
+
+fwrite(v_mat, "../../Comparison/v_matrix/SLIDE_vmat.csv", quote = F, row.names = F)
+
+v_mat
+```
+
+## Detect Top Features with Kneedle
+
+```{r}
+kneedle_df <- v_mat %>%
+  filter(Factor == "Factor1") %>%
+  select(Weight, View, Feature) %>%
+  mutate(`Absolute Weight` = abs(Weight)) %>%
+  arrange(-`Absolute Weight`) %>%
+  mutate(Rank = 1:nrow(.)) 
+knee <- kneedle(kneedle_df$Rank, kneedle_df$`Absolute Weight`)
+
+fwrite(kneedle_df %>% select(View, Feature, `Absolute Weight`, Rank), "../../Comparison/kneedle_df/SLIDE_kneedle.csv", quote = F, row.names = F)
+
+# Let's plot
+ggplot(kneedle_df, aes(x = Rank, y = `Absolute Weight`, color = View)) +
+  geom_point() +
+  theme_bw() +
+  geom_hline(yintercept = knee[2], linetype = "dashed") +
+  ggtitle("SLIDE") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom")
+```
+
+```{r}
+kneedle_df %>%
+  filter(Rank <= knee[1]) %>%
+  select(View, Feature, `Absolute Weight`, Rank) %>%
+  fwrite("../../Comparison/TopK/SLIDE_TopK.csv", quote = F, row.names = F)
+```
+
+```{r}
+kneedle_df %>%
+  filter(Rank <= knee[1]) %>%
+  select(View, Feature, `Absolute Weight`, Rank)
+```

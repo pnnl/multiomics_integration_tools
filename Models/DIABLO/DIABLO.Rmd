@@ -1,0 +1,282 @@
+---
+title: "DIABLO"
+author: "Flores, Javier E & Degnan, David J"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(mixOmics) 
+library(tidyverse)
+library(data.table)
+library(kneedle) # devtools::install_github("etam4260/kneedle")
+library(tidymodels)
+library(fastshap)
+library(shapviz)
+library(tidymodels)
+
+seed = 2825
+set.seed(seed)
+```
+
+## Format Multiomics Data
+
+DIABLO assumes samples are rows and columns are the features, and requires a list
+of data.frames. 
+
+```{r}
+transpose_df <- function(x) {
+  x %>%
+    pivot_longer(2:ncol(.)) %>% 
+    rename(Sample = name) %>% 
+    pivot_wider(names_from = Feature, id_cols = Sample) %>%
+    dplyr::select(-Sample) %>%
+    as.matrix()
+}
+
+# Load datasets 
+microbiome <- fread("../../Dataset/Scaled/16S_Edata.csv")
+metap <- fread("../../Dataset/Scaled/Metaproteomics.csv")
+metab_pos <- fread("../../Dataset/Scaled/Metabolomics_Positive.csv")
+metab_neg <- fread("../../Dataset/Scaled/Metabolomics_Negative.csv")
+
+# Make list of input matrices
+omicsX <- list(
+  "16S" = transpose_df(microbiome),
+  "metaproteomics" = transpose_df(metap), 
+  "metabolomics positive" = transpose_df(metab_pos),
+  "metabolomics negative" = transpose_df(metab_neg)
+)
+
+# Make response data.frame
+responseY <- data.frame(
+  group = factor(c(rep("00wk", 3), rep("post-00wk", 9)), levels = c("00wk", "post-00wk"))
+)
+```
+
+## Fine Tune DIABLO Model
+
+Due to DIABLO's design, it is difficult to use the exact same CV partitions as we
+used for the other models. 
+
+*Create Design Matrix*
+
+```{r}
+# Fit PLS between all pairs of data in omicsX. 
+pls_res <- list()
+for(i in 1:(length(omicsX)-1)){
+  for(j in (i+1):length(omicsX)){
+    chari <- as.character(i)
+    charj <- as.character(j)
+    pls_res[[chari]][[charj]] <- spls(X = omicsX[[i]], 
+                                      Y = omicsX[[j]], 
+                                      ncomp = 2,
+                                      # Note that in fitting spls, one must specify the 
+                                      # number of features with non-zero loadings there should be in each of the
+                                      # final components. Choice of this number is fairly arbitrary, given that
+                                      # the algo works to find linear combinations that maximize the covariance 
+                                      # between the indicated datasets. Therefore, the features with non-zero loadings
+                                      # will represent those that are *most* correlated between the two datasets. 
+                                      keepX = rep(8, 2), # Cannot be any larger than the smallest ome - so 8
+                                      keepY = rep(8, 2)) # Cannot be any larger than the smallest ome - so 8
+    rm(chari, charj)
+  }
+}
+
+dat_cors <- expand.grid(1:length(omicsX), 1:length(omicsX)) %>%
+  as.data.frame(.) %>%
+  dplyr::filter(Var1 != Var2) %>%
+  dplyr::filter(Var1 < Var2) %>%
+  dplyr::mutate(correlation = NA,
+                design_weight = 0)
+design <- matrix(0, ncol = length(omicsX), nrow = length(omicsX), # for square matrix filled with 0.1s
+                 dimnames = list(names(omicsX), names(omicsX)))
+for(i in 1:nrow(dat_cors)){
+  chari <- as.character(dat_cors[i,1])
+  charj <- as.character(dat_cors[i,2])
+  dat_cors$correlation[i] <- cor(pls_res[[chari]][[charj]]$variates$X, 
+                                 pls_res[[chari]][[charj]]$variates$Y)[1,1]
+  # Here is where threshold is implemented.
+  dat_cors$design_weight[i] <- ifelse(dat_cors$correlation[i] > 0.75, 0.1, 0)
+  design[dat_cors[i,1], dat_cors[i,2]] <- dat_cors$design_weight[i]
+  design[dat_cors[i,2], dat_cors[i,1]] <- dat_cors$design_weight[i]
+  rm(chari,charj)
+}
+# Add col/row corresponding to Y linkage. Values here should always be 1.
+design <- rbind(cbind(design, 1), 1)
+diag(design) <- 0
+rownames(design) = colnames(design) = c(colnames(design)[-(length(omicsX)+1)], "Y")
+
+design
+```
+
+*Tune the number of components and features in a component*
+
+```{r}
+# Select error type by design
+if(all(diff(table(responseY)) == 0)){
+  
+  # Choice if balanced design
+  error_choice <- "Overall.ER"
+  measure <- "overall" # used in next tuning step for tune.block.splsda
+  
+} else{
+  
+  # Choice if unbalanced design
+  error_choice <- "Overall.BER"
+  measure <- "BER" # used in next tuning step for tune.block.splsda
+}
+
+# We consider sequence defined by percentiles of the number of feature per omic.
+# So as to avoid very large numbers of features, max percentile will be
+# 30%. 
+test.keepX <- list(`16S` = 2,
+                    metaproteomics = round(c(0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3)*nrow(metap)),
+                   `metabolomics positive` = round(c(0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3)*nrow(metab_pos)),
+                   `metabolomics negative` = round(c(0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3)*nrow(metab_neg)))
+
+# Maximum number of components to consider - based on the maximum value before error outs
+test.ncomp <- 7
+
+# All values are default unless otherwise indicated
+BPPARAM <- BiocParallel::SnowParam(workers = parallel::detectCores()/4)
+system.time({
+  tune.model <- tune.block.splsda(X = omicsX, # non-default
+                                  Y = responseY$group, # non-default  
+                                  ncomp = test.ncomp, # non-default, got error using initial amount
+                                  # "Error in solve.default(Sr): system is computationally singular: reciprocal condition number = 3.22428e-19" 
+                                  # hence the substraction
+                                  test.keepX = test.keepX, # non-default
+                                  design = design, # non-default
+                                  measure = measure, # non-default
+                                  validation = 'Mfold', # non-default
+                                  folds = 3, # non-default
+                                  nrepeat = 5, # non-default
+                                  dist = "mahalanobis.dist", # non-default
+                                  weighted = TRUE,
+                                  progressBar = TRUE,
+                                  tol = 1e-6,
+                                  max.iter = 100, 
+                                  near.zero.var = FALSE,
+                                  #scheme = "horst",
+                                  scale = TRUE, # Scaling already occurs
+                                  #init = "svd",
+                                  light.output = TRUE,
+                                  signif.threshold = 0.01,
+                                  BPPARAM = BPPARAM, # non-default
+                                  seed = 1) # non-default
+})
+BiocParallel::bpstop()
+
+# Extract the optimal number of components
+final.ncomp <- tune.model$choice.ncomp$ncomp
+
+# Extract the optimal number of features that should have non-zero loadings
+# for each dataset. Need to reduce down to vector sets based on final.ncomp
+final.keepX <- lapply(tune.model$choice.keepX, function(x, ncomps){
+  x[1:ncomps]
+}, ncomps = final.ncomp)
+```
+
+Apply final tuning parameters and save model. 
+
+```{r}
+final.model <- block.splsda(X = omicsX, # non-default
+                            Y = responseY$group, # non-default  
+                            ncomp = 1,
+                            keepX = list(`16S` = 2, 
+                                         metaproteomics = 14, 
+                                         `metabolomics positive` = 14,
+                                         `metabolomics negative` = 9),
+                            design = design,
+                            #scheme = "horst", # This is the default value, even if doc doesn't show it
+                            scale = TRUE,
+                            #init = "svd",
+                            tol = 1e-06,
+                            max.iter = 100,
+                            near.zero.var = FALSE,
+                            all.outputs = TRUE,
+                            verbose.call = FALSE)
+```
+
+Build final model.
+
+```{r}
+final_mod_predinfo <- predict(object = final.model, newdata = omicsX)
+```
+
+## Build U matrix 
+
+Note that here, there is one u matrix per view. Here, let's take an average.
+
+```{r}
+do.call(cbind, final.model$variates) %>%
+  data.frame() %>%
+  mutate(
+    Group = c(rep("00wk", 3), rep("post-00wk", 9)),
+    Factor1 = rowMeans(.),
+  ) %>%
+  dplyr::select(Group, Factor1) %>%
+  fwrite("../../Comparison/u_matrix/DIABLO_umat_average.csv")
+```
+
+## Construct V Matrix
+
+```{r}
+# Construct V Martix - Factor, Weight, Feature, View
+v_mat <- do.call(rbind, final.model$loadings[1:4]) %>%
+  data.frame() %>%
+  mutate(
+    Factor = "Factor1",
+    View = lapply(1:(length(final.model$loadings)-1), function(el) {
+      rep(names(final.model$loadings)[el], nrow(final.model$loadings[[el]]))
+    }) %>% unlist(),
+    Feature = row.names(.)
+  ) %>%
+  rename(Weight = comp1) %>%
+  select(Factor, Weight, Feature, View)
+row.names(v_mat) <- 1:nrow(v_mat)
+
+# Write out the v matrix
+fwrite(v_mat, "../../Comparison/v_matrix/DIABLO_vmat.csv", quote = F, row.names = F)
+
+v_mat
+```
+
+## Detect Top Features with Kneedle
+
+```{r}
+kneedle_df <- v_mat %>%
+  select(Weight, View, Feature) %>%
+  mutate(`Absolute Weight` = abs(Weight)) %>%
+  arrange(-`Absolute Weight`) %>%
+  mutate(Rank = 1:nrow(.)) 
+knee <- kneedle(kneedle_df$Rank, kneedle_df$`Absolute Weight`)
+
+fwrite(kneedle_df %>% select(View, Feature, `Absolute Weight`, Rank), 
+       "../../Comparison/kneedle_df/DIABLO_kneedle.csv", quote = F, row.names = F)
+
+# Let's plot
+ggplot(kneedle_df, aes(x = Rank, y = `Absolute Weight`, color = View)) +
+  geom_point() +
+  theme_bw() +
+  geom_hline(yintercept = knee[2], linetype = "dashed") +
+  ggtitle("DIABLO") +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "bottom")
+```
+
+```{r}
+kneedle_df %>%
+  filter(Rank <= knee[1]) %>%
+  select(View, Feature, `Absolute Weight`, Rank) %>%
+  fwrite("../../Comparison/TopK/DIABLO_TopK.csv", quote = F, row.names = F)
+```
+
+```{r}
+kneedle_df %>%
+  filter(Rank <= knee[1]) %>%
+  select(View, Feature, `Absolute Weight`, Rank)
+```
+
+
+
