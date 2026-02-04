@@ -1,0 +1,15 @@
+View,Feature,Absolute Weight,Rank
+lipidomics positive,DG.34.2,0.61551315445205,1
+lipidomics negative,Cer.39.1.4O.1,0.519368322266093,2
+lipidomics positive,Cer.34.1.3O,0.519155039797744,3
+lipidomics positive,Cer.34.0.3O,0.393267732307085,4
+lipidomics negative,PG.32.0,0.393242086678374,5
+lipidomics negative,Cer.36.0.4O,0.390589944001135,6
+lipidomics negative,Cer.42.1.3O.1,0.359297652854387,7
+lipidomics negative,PE.33.2.1,0.3142477977309,8
+lipidomics positive,DGTS.38.2,0.285947696625753,9
+metabolomics,X6.deoxy.D.glucose,0.27337101209449,10
+lipidomics positive,DGCC.36.2,0.268722636820354,11
+metabolomics,D.fructose,0.2418450480944,12
+metabolomics,X2.methyl.3.hydroxybutyric.acid,0.216838591804752,13
+metabolomics,oxalacetic.acid,0.206987421814569,14

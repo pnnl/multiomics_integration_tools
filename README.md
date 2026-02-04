@@ -10,3 +10,4 @@ Here is the code to run 5 multi-omics integration models: [DIABLO](https://githu
 | Dataset/ | Contains the original omics data, scaled omics data, etc. |
 | Models/ | Contains each model and how it was implemented |
 | Plots/ | Contains PNGs of analytical plots |
+| WHONDRS/ | A second analysis using soil data near and not near vegetation. Includes Comparison, Dataset, and Models |

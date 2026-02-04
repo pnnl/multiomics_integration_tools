@@ -1,0 +1,170 @@
+Factor,Weight,Feature,View
+Factor1,-0.0053723799137515,(+)-6-aminopenicillanic acid,metabolomics
+Factor1,0.000448820946758133,1,3-dihydroxyacetone,metabolomics
+Factor1,-0.00170753196204032,1-methyladenosine,metabolomics
+Factor1,-0.00183186800859403,2-methyl-3-hydroxybutyric acid,metabolomics
+Factor1,0.00093849860058981,3-(1-pyrazolyl)-L-alanine,metabolomics
+Factor1,0.00153649401079292,3-hydroxyisobutyric acid,metabolomics
+Factor1,0.000893830693257769,3-hydroxyisovaleric acid,metabolomics
+Factor1,0.000350068160287265,3-oxoadipic acid,metabolomics
+Factor1,-0.000269208539975807,D-fructose,metabolomics
+Factor1,7.81049066063133e-05,D-gluconic acid,metabolomics
+Factor1,-0.000424811192715424,D-glucosaminic acid,metabolomics
+Factor1,0.00544476019967988,D-glucose,metabolomics
+Factor1,-0.000298498799566005,D-malic acid,metabolomics
+Factor1,-0.00142468043850386,D-mannitol,metabolomics
+Factor1,-0.000594330977946811,D-mannose,metabolomics
+Factor1,0.00170996105538279,D-ribose,metabolomics
+Factor1,-0.00125075297819421,D-threitol,metabolomics
+Factor1,0.00486949841570095,D-xylose,metabolomics
+Factor1,0.000227883458364886,Impurity 001,metabolomics
+Factor1,-0.0132108618490747,L-allothreonine,metabolomics
+Factor1,0.00141384690232371,L-asparagine-15N2,d8,metabolomics
+Factor1,0.000342088067554869,L-isoleucine,metabolomics
+Factor1,-0.00166314363332276,L-phenylalanine,metabolomics
+Factor1,-0.000536859286114577,L-threonine,metabolomics
+Factor1,-0.00100183053382352,N-acetyl-L-cysteine,metabolomics
+Factor1,-0.0034231754659686,TE,metabolomics
+Factor1,-0.000406467613615291,arabitol,metabolomics
+Factor1,-0.0017226924210263,catechol,metabolomics
+Factor1,-0.00068089443630015,estriol,metabolomics
+Factor1,0.000847894903017732,ethyl glucuronide,metabolomics
+Factor1,-0.00428686451414251,galactitol,metabolomics
+Factor1,0.0028535240607539,galactonic acid,metabolomics
+Factor1,0.000130122839436808,glucoheptonic acid,metabolomics
+Factor1,-0.00221682949995738,glucosamine-1-phosphate,metabolomics
+Factor1,-0.00600238559309219,glycerol,metabolomics
+Factor1,-0.000910512065729563,homogentisic acid,metabolomics
+Factor1,0.00681584353515063,isomaltose,metabolomics
+Factor1,0.00112592257937649,lactobionic acid,metabolomics
+Factor1,0.00233872273679481,lactose,metabolomics
+Factor1,0.00279467533300704,maltose,metabolomics
+Factor1,0.000355930133991933,melibiose,metabolomics
+Factor1,-0.00131352418975439,myo-inositol,metabolomics
+Factor1,0.00367837556314043,oxalacetic acid,metabolomics
+Factor1,0.00104547406681377,propylene glycol,metabolomics
+Factor1,0.000564612578727974,pyrogallol,metabolomics
+Factor1,0.000288342908106642,scyllo-inositol,metabolomics
+Factor1,-0.00684801089664688,sucrose,metabolomics
+Factor1,-7.38803901185747e-05,tartaric acid,metabolomics
+Factor1,-0.000124323308398289,trans-3-hexenedioic acid,metabolomics
+Factor1,0.0003815189554075,trans-aconitic acid,metabolomics
+Factor1,0.000847635412355885,trehalose,metabolomics
+Factor1,-0.000986169834504835,turanose,metabolomics
+Factor1,-0.000935970808882303,cellobiose,metabolomics
+Factor1,0.000751545347611682,6-deoxy-D-glucose,metabolomics
+Factor1,0.00147143108029013,Cer 16:0;2O,lipidomics positive
+Factor1,-0.00309853832095541,Cer 34:0;2O,lipidomics positive
+Factor1,-0.00256622517918004,Cer 34:0;3O,lipidomics positive
+Factor1,0.00814864835410845,Cer 34:1;3O,lipidomics positive
+Factor1,-0.00506423784629817,Cer 35:0;2O,lipidomics positive
+Factor1,-0.000522338592418237,Cer 35:0;3O,lipidomics positive
+Factor1,0.00048135767463009,Cer 35:3;2O,lipidomics positive
+Factor1,-0.00763948735766462,Cer 36:0;2O,lipidomics positive
+Factor1,0.0013672488848897,Cer 36:3;2O,lipidomics positive
+Factor1,-0.000469644312033779,Cer 38:0;3O,lipidomics positive
+Factor1,-0.000522198318321898,Cer 38:3;2O,lipidomics positive
+Factor1,-0.00439409811860969,Cer 39:1;4O,lipidomics positive
+Factor1,-0.00655429534526775,Cer 41:1;4O,lipidomics positive
+Factor1,-0.000182796296940069,Cer 42:0;3O,lipidomics positive
+Factor1,-0.000911885493451336,Cer 42:1;3O,lipidomics positive
+Factor1,0.00158114179771474,Cer 43:1;4O,lipidomics positive
+Factor1,-0.00381499831473775,Cer 44:0;3O,lipidomics positive
+Factor1,-0.00435033830581233,Cer 44:0;4O,lipidomics positive
+Factor1,0.00174898726163519,Cer 44:1;4O,lipidomics positive
+Factor1,0.000998212441118085,DG 30:0,lipidomics positive
+Factor1,0.00282704062374251,DG 30:1,lipidomics positive
+Factor1,0.00181542264454038,DG 31:1,lipidomics positive
+Factor1,0.00263910956709879,DG 32:0,lipidomics positive
+Factor1,0.00121585088345455,DG 32:1,lipidomics positive
+Factor1,-0.00177380655031811,DG 32:2,lipidomics positive
+Factor1,-0.00266408163952292,DG 33:0,lipidomics positive
+Factor1,-0.00299905838664927,DG 33:1,lipidomics positive
+Factor1,-0.00196355229491019,DG 34:0,lipidomics positive
+Factor1,-0.0055684796825517,DG 34:1,lipidomics positive
+Factor1,0.0027024616010749,DG 34:2,lipidomics positive
+Factor1,0.00207190272294611,DG 34:3,lipidomics positive
+Factor1,0.0018145175627069,DG 35:1,lipidomics positive
+Factor1,-0.00179943652585735,DG 36:1,lipidomics positive
+Factor1,-0.00275699346457259,DG 36:2,lipidomics positive
+Factor1,-0.00109488818998216,DG 36:3,lipidomics positive
+Factor1,-0.000641466798697365,DG 36:4,lipidomics positive
+Factor1,0.00341255351304426,DG 36:5,lipidomics positive
+Factor1,0.00196106013378028,DG 36:6,lipidomics positive
+Factor1,-0.000396422170467758,DG 37:0,lipidomics positive
+Factor1,8.73675362527138e-05,DG 38:2,lipidomics positive
+Factor1,0.000993416201254149,DG 56:12,lipidomics positive
+Factor1,0.00145812317714444,DGCC 32:1,lipidomics positive
+Factor1,-0.0032583994648121,DGCC 36:2,lipidomics positive
+Factor1,0.000470619308543974,DGDG 36:5,lipidomics positive
+Factor1,-0.002518973142287,DGTS 32:1,lipidomics positive
+Factor1,-0.0149300477487486,DGTS 34:1,lipidomics positive
+Factor1,-0.000394179056456778,DGTS 36:1,lipidomics positive
+Factor1,0.00792400624777656,DGTS 38:2,lipidomics positive
+Factor1,-0.00861462739703711,LDGCC 32:2,lipidomics positive
+Factor1,-0.0167231400882883,LDGCC 34:2,lipidomics positive
+Factor1,-0.00266615867076325,LDGCC 36:2,lipidomics positive
+Factor1,-0.00331184482786284,MG 16:0,lipidomics positive
+Factor1,0.0065556213085074,MG 16:1,lipidomics positive
+Factor1,-0.00166314882108054,MG 17:0,lipidomics positive
+Factor1,-0.0047098501356686,MG 18:1,lipidomics positive
+Factor1,0.00067286255119825,MG 18:2,lipidomics positive
+Factor1,-0.0082590724050533,PC 33:2,lipidomics positive
+Factor1,0.00401035504683023,PC 34:2,lipidomics positive
+Factor1,0.000399627590468299,PC 35:1,lipidomics positive
+Factor1,0.00360622572225111,PC 35:2,lipidomics positive
+Factor1,-0.00244223513118413,PC 36:2,lipidomics positive
+Factor1,-0.00608912745565249,PC 37:2,lipidomics positive
+Factor1,-0.00437465664981573,PC 38:2,lipidomics positive
+Factor1,0.00324816229840508,PE 32:0,lipidomics positive
+Factor1,0.0057462213699182,PE 33:2,lipidomics positive
+Factor1,0.00406742607299293,PE 38:6,lipidomics positive
+Factor1,0.00306613098382513,TG 44:2,lipidomics positive
+Factor1,0.00141181242258881,TG 46:3,lipidomics positive
+Factor1,0.000114842950592831,TG 47:1,lipidomics positive
+Factor1,0.000691197361447848,TG 47:2,lipidomics positive
+Factor1,-0.00411731143685756,TG 47:3,lipidomics positive
+Factor1,-0.00316187232601806,TG 48:3,lipidomics positive
+Factor1,-0.00139359871218403,TG 49:3,lipidomics positive
+Factor1,0.00104071438374831,TG 50:6,lipidomics positive
+Factor1,0.0011894933959411,TG 51:6,lipidomics positive
+Factor1,0.000132200026200735,Cer 28:0;2O,lipidomics positive
+Factor1,-0.000447888799044449,Cer 33:0;2O,lipidomics positive
+Factor1,-0.00247784391581263,Cer 34:1;2O,lipidomics positive
+Factor1,-0.00107243456221795,Cer 36:2;2O,lipidomics positive
+Factor1,-0.00268716522259638,Cer 37:0;3O,lipidomics positive
+Factor1,-0.00341913264492177,TG 49:2,lipidomics positive
+Factor1,-0.000280663468856801,Cer 34:0;2O,lipidomics negative
+Factor1,0.000327894294741782,Cer 36:0;3O,lipidomics negative
+Factor1,0.00124162725683163,Cer 36:0;4O,lipidomics negative
+Factor1,-6.21923957169202e-05,Cer 37:0;3O,lipidomics negative
+Factor1,0.000276999362540664,Cer 39:1;4O,lipidomics negative
+Factor1,0.00144668667021719,Cer 40:0;3O,lipidomics negative
+Factor1,0.00380122444767039,Cer 41:1;4O,lipidomics negative
+Factor1,-0.000540482423730282,Cer 42:0;3O,lipidomics negative
+Factor1,0.00031882879954992,Cer 42:1;3O,lipidomics negative
+Factor1,0.000840123921079794,Cer 43:1;4O,lipidomics negative
+Factor1,-0.00289026978975926,Cer 44:0;3O,lipidomics negative
+Factor1,0.000735041820007609,Cer 45:0;2O,lipidomics negative
+Factor1,-0.00125186296281754,FA 16:0,lipidomics negative
+Factor1,0.00329877974581905,FA 16:1,lipidomics negative
+Factor1,-0.00418158229695109,FA 17:0,lipidomics negative
+Factor1,1.01417426776607e-05,FA 18:0,lipidomics negative
+Factor1,0.000627524672722757,FA 18:1,lipidomics negative
+Factor1,0.00454004928906215,FA 18:2,lipidomics negative
+Factor1,0.00342183690747788,FA 21:0,lipidomics negative
+Factor1,0.000755606021698441,FA 22:0,lipidomics negative
+Factor1,-0.000503475224263639,FA 23:0,lipidomics negative
+Factor1,0.000435442298794442,FA 28:0,lipidomics negative
+Factor1,0.000720120171536109,FA 30:0,lipidomics negative
+Factor1,0.000700836684529804,FA 34:0,lipidomics negative
+Factor1,3.50267723661091e-05,FA 34:6,lipidomics negative
+Factor1,-0.0015982656086635,FA 35:0,lipidomics negative
+Factor1,0.000630917737680647,FA 36:2,lipidomics negative
+Factor1,-0.00117777408740949,FA 44:0,lipidomics negative
+Factor1,0.00079328427193559,HexCer 33:5;2O,lipidomics negative
+Factor1,0.000216164204630331,PE 33:2,lipidomics negative
+Factor1,-0.000126195865959744,PG 32:0,lipidomics negative
+Factor1,-0.00271351086394134,FA 41:0,lipidomics negative
+Factor1,7.09597250079241e-05,HexCer 49:6;2O,lipidomics negative
+Factor1,6.59811889818229e-05,Cer 34:1;2O,lipidomics negative

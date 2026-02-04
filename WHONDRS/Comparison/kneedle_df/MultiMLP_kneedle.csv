@@ -1,0 +1,170 @@
+View,Feature,Absolute Weight,Rank
+lipidomics positive,LDGCC 34:2,0.0167231400882883,1
+lipidomics positive,DGTS 34:1,0.0149300477487486,2
+metabolomics,L-allothreonine,0.0132108618490747,3
+lipidomics positive,LDGCC 32:2,0.00861462739703711,4
+lipidomics positive,PC 33:2,0.0082590724050533,5
+lipidomics positive,Cer 34:1;3O,0.00814864835410845,6
+lipidomics positive,DGTS 38:2,0.00792400624777656,7
+lipidomics positive,Cer 36:0;2O,0.00763948735766462,8
+metabolomics,sucrose,0.00684801089664688,9
+metabolomics,isomaltose,0.00681584353515063,10
+lipidomics positive,MG 16:1,0.0065556213085074,11
+lipidomics positive,Cer 41:1;4O,0.00655429534526775,12
+lipidomics positive,PC 37:2,0.00608912745565249,13
+metabolomics,glycerol,0.00600238559309219,14
+lipidomics positive,PE 33:2,0.0057462213699182,15
+lipidomics positive,DG 34:1,0.0055684796825517,16
+metabolomics,D-glucose,0.00544476019967988,17
+metabolomics,(+)-6-aminopenicillanic acid,0.0053723799137515,18
+lipidomics positive,Cer 35:0;2O,0.00506423784629817,19
+metabolomics,D-xylose,0.00486949841570095,20
+lipidomics positive,MG 18:1,0.0047098501356686,21
+lipidomics negative,FA 18:2,0.00454004928906215,22
+lipidomics positive,Cer 39:1;4O,0.00439409811860969,23
+lipidomics positive,PC 38:2,0.00437465664981573,24
+lipidomics positive,Cer 44:0;4O,0.00435033830581233,25
+metabolomics,galactitol,0.00428686451414251,26
+lipidomics negative,FA 17:0,0.00418158229695109,27
+lipidomics positive,TG 47:3,0.00411731143685756,28
+lipidomics positive,PE 38:6,0.00406742607299293,29
+lipidomics positive,PC 34:2,0.00401035504683023,30
+lipidomics positive,Cer 44:0;3O,0.00381499831473775,31
+lipidomics negative,Cer 41:1;4O,0.00380122444767039,32
+metabolomics,oxalacetic acid,0.00367837556314043,33
+lipidomics positive,PC 35:2,0.00360622572225111,34
+metabolomics,TE,0.0034231754659686,35
+lipidomics negative,FA 21:0,0.00342183690747788,36
+lipidomics positive,TG 49:2,0.00341913264492177,37
+lipidomics positive,DG 36:5,0.00341255351304426,38
+lipidomics positive,MG 16:0,0.00331184482786284,39
+lipidomics negative,FA 16:1,0.00329877974581905,40
+lipidomics positive,DGCC 36:2,0.0032583994648121,41
+lipidomics positive,PE 32:0,0.00324816229840508,42
+lipidomics positive,TG 48:3,0.00316187232601806,43
+lipidomics positive,Cer 34:0;2O,0.00309853832095541,44
+lipidomics positive,TG 44:2,0.00306613098382513,45
+lipidomics positive,DG 33:1,0.00299905838664927,46
+lipidomics negative,Cer 44:0;3O,0.00289026978975926,47
+metabolomics,galactonic acid,0.0028535240607539,48
+lipidomics positive,DG 30:1,0.00282704062374251,49
+metabolomics,maltose,0.00279467533300704,50
+lipidomics positive,DG 36:2,0.00275699346457259,51
+lipidomics negative,FA 41:0,0.00271351086394134,52
+lipidomics positive,DG 34:2,0.0027024616010749,53
+lipidomics positive,Cer 37:0;3O,0.00268716522259638,54
+lipidomics positive,LDGCC 36:2,0.00266615867076325,55
+lipidomics positive,DG 33:0,0.00266408163952292,56
+lipidomics positive,DG 32:0,0.00263910956709879,57
+lipidomics positive,Cer 34:0;3O,0.00256622517918004,58
+lipidomics positive,DGTS 32:1,0.002518973142287,59
+lipidomics positive,Cer 34:1;2O,0.00247784391581263,60
+lipidomics positive,PC 36:2,0.00244223513118413,61
+metabolomics,lactose,0.00233872273679481,62
+metabolomics,glucosamine-1-phosphate,0.00221682949995738,63
+lipidomics positive,DG 34:3,0.00207190272294611,64
+lipidomics positive,DG 34:0,0.00196355229491019,65
+lipidomics positive,DG 36:6,0.00196106013378028,66
+metabolomics,2-methyl-3-hydroxybutyric acid,0.00183186800859403,67
+lipidomics positive,DG 31:1,0.00181542264454038,68
+lipidomics positive,DG 35:1,0.0018145175627069,69
+lipidomics positive,DG 36:1,0.00179943652585735,70
+lipidomics positive,DG 32:2,0.00177380655031811,71
+lipidomics positive,Cer 44:1;4O,0.00174898726163519,72
+metabolomics,catechol,0.0017226924210263,73
+metabolomics,D-ribose,0.00170996105538279,74
+metabolomics,1-methyladenosine,0.00170753196204032,75
+lipidomics positive,MG 17:0,0.00166314882108054,76
+metabolomics,L-phenylalanine,0.00166314363332276,77
+lipidomics negative,FA 35:0,0.0015982656086635,78
+lipidomics positive,Cer 43:1;4O,0.00158114179771474,79
+metabolomics,3-hydroxyisobutyric acid,0.00153649401079292,80
+lipidomics positive,Cer 16:0;2O,0.00147143108029013,81
+lipidomics positive,DGCC 32:1,0.00145812317714444,82
+lipidomics negative,Cer 40:0;3O,0.00144668667021719,83
+metabolomics,D-mannitol,0.00142468043850386,84
+metabolomics,L-asparagine-15N2,d8,0.00141384690232371,85
+lipidomics positive,TG 46:3,0.00141181242258881,86
+lipidomics positive,TG 49:3,0.00139359871218403,87
+lipidomics positive,Cer 36:3;2O,0.0013672488848897,88
+metabolomics,myo-inositol,0.00131352418975439,89
+lipidomics negative,FA 16:0,0.00125186296281754,90
+metabolomics,D-threitol,0.00125075297819421,91
+lipidomics negative,Cer 36:0;4O,0.00124162725683163,92
+lipidomics positive,DG 32:1,0.00121585088345455,93
+lipidomics positive,TG 51:6,0.0011894933959411,94
+lipidomics negative,FA 44:0,0.00117777408740949,95
+metabolomics,lactobionic acid,0.00112592257937649,96
+lipidomics positive,DG 36:3,0.00109488818998216,97
+lipidomics positive,Cer 36:2;2O,0.00107243456221795,98
+metabolomics,propylene glycol,0.00104547406681377,99
+lipidomics positive,TG 50:6,0.00104071438374831,100
+metabolomics,N-acetyl-L-cysteine,0.00100183053382352,101
+lipidomics positive,DG 30:0,0.000998212441118085,102
+lipidomics positive,DG 56:12,0.000993416201254149,103
+metabolomics,turanose,0.000986169834504835,104
+metabolomics,3-(1-pyrazolyl)-L-alanine,0.00093849860058981,105
+metabolomics,cellobiose,0.000935970808882303,106
+lipidomics positive,Cer 42:1;3O,0.000911885493451336,107
+metabolomics,homogentisic acid,0.000910512065729563,108
+metabolomics,3-hydroxyisovaleric acid,0.000893830693257769,109
+metabolomics,ethyl glucuronide,0.000847894903017732,110
+metabolomics,trehalose,0.000847635412355885,111
+lipidomics negative,Cer 43:1;4O,0.000840123921079794,112
+lipidomics negative,HexCer 33:5;2O,0.00079328427193559,113
+lipidomics negative,FA 22:0,0.000755606021698441,114
+metabolomics,6-deoxy-D-glucose,0.000751545347611682,115
+lipidomics negative,Cer 45:0;2O,0.000735041820007609,116
+lipidomics negative,FA 30:0,0.000720120171536109,117
+lipidomics negative,FA 34:0,0.000700836684529804,118
+lipidomics positive,TG 47:2,0.000691197361447848,119
+metabolomics,estriol,0.00068089443630015,120
+lipidomics positive,MG 18:2,0.00067286255119825,121
+lipidomics positive,DG 36:4,0.000641466798697365,122
+lipidomics negative,FA 36:2,0.000630917737680647,123
+lipidomics negative,FA 18:1,0.000627524672722757,124
+metabolomics,D-mannose,0.000594330977946811,125
+metabolomics,pyrogallol,0.000564612578727974,126
+lipidomics negative,Cer 42:0;3O,0.000540482423730282,127
+metabolomics,L-threonine,0.000536859286114577,128
+lipidomics positive,Cer 35:0;3O,0.000522338592418237,129
+lipidomics positive,Cer 38:3;2O,0.000522198318321898,130
+lipidomics negative,FA 23:0,0.000503475224263639,131
+lipidomics positive,Cer 35:3;2O,0.00048135767463009,132
+lipidomics positive,DGDG 36:5,0.000470619308543974,133
+lipidomics positive,Cer 38:0;3O,0.000469644312033779,134
+metabolomics,1,3-dihydroxyacetone,0.000448820946758133,135
+lipidomics positive,Cer 33:0;2O,0.000447888799044449,136
+lipidomics negative,FA 28:0,0.000435442298794442,137
+metabolomics,D-glucosaminic acid,0.000424811192715424,138
+metabolomics,arabitol,0.000406467613615291,139
+lipidomics positive,PC 35:1,0.000399627590468299,140
+lipidomics positive,DG 37:0,0.000396422170467758,141
+lipidomics positive,DGTS 36:1,0.000394179056456778,142
+metabolomics,trans-aconitic acid,0.0003815189554075,143
+metabolomics,melibiose,0.000355930133991933,144
+metabolomics,3-oxoadipic acid,0.000350068160287265,145
+metabolomics,L-isoleucine,0.000342088067554869,146
+lipidomics negative,Cer 36:0;3O,0.000327894294741782,147
+lipidomics negative,Cer 42:1;3O,0.00031882879954992,148
+metabolomics,D-malic acid,0.000298498799566005,149
+metabolomics,scyllo-inositol,0.000288342908106642,150
+lipidomics negative,Cer 34:0;2O,0.000280663468856801,151
+lipidomics negative,Cer 39:1;4O,0.000276999362540664,152
+metabolomics,D-fructose,0.000269208539975807,153
+metabolomics,Impurity 001,0.000227883458364886,154
+lipidomics negative,PE 33:2,0.000216164204630331,155
+lipidomics positive,Cer 42:0;3O,0.000182796296940069,156
+lipidomics positive,Cer 28:0;2O,0.000132200026200735,157
+metabolomics,glucoheptonic acid,0.000130122839436808,158
+lipidomics negative,PG 32:0,0.000126195865959744,159
+metabolomics,trans-3-hexenedioic acid,0.000124323308398289,160
+lipidomics positive,TG 47:1,0.000114842950592831,161
+lipidomics positive,DG 38:2,8.73675362527138e-05,162
+metabolomics,D-gluconic acid,7.81049066063133e-05,163
+metabolomics,tartaric acid,7.38803901185747e-05,164
+lipidomics negative,HexCer 49:6;2O,7.09597250079241e-05,165
+lipidomics negative,Cer 34:1;2O,6.59811889818229e-05,166
+lipidomics negative,Cer 37:0;3O,6.21923957169202e-05,167
+lipidomics negative,FA 34:6,3.50267723661091e-05,168
+lipidomics negative,FA 18:0,1.01417426776607e-05,169

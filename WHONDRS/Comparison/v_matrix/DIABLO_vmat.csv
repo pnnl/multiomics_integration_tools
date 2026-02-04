@@ -1,0 +1,170 @@
+Factor,Weight,Feature,View
+Factor1,-0.0331128905435737,X....6.aminopenicillanic.acid,metabolomics
+Factor1,0.104895029702037,X1.3.dihydroxyacetone,metabolomics
+Factor1,0.131244000281962,X1.methyladenosine,metabolomics
+Factor1,0.216838591804752,X2.methyl.3.hydroxybutyric.acid,metabolomics
+Factor1,0.0950397458912866,X3..1.pyrazolyl..L.alanine,metabolomics
+Factor1,-0.119768400489019,X3.hydroxyisobutyric.acid,metabolomics
+Factor1,0.203474727772597,X3.hydroxyisovaleric.acid,metabolomics
+Factor1,0.0117574377447585,X3.oxoadipic.acid,metabolomics
+Factor1,0.2418450480944,D.fructose,metabolomics
+Factor1,0.10748368247571,D.gluconic.acid,metabolomics
+Factor1,0.122224818335214,D.glucosaminic.acid,metabolomics
+Factor1,0.107078264263643,D.glucose,metabolomics
+Factor1,0.0875117573680342,D.malic.acid,metabolomics
+Factor1,0.193046354264312,D.mannitol,metabolomics
+Factor1,0.0430917637475434,D.mannose,metabolomics
+Factor1,0.181479543942555,D.ribose,metabolomics
+Factor1,-0.10841700482777,D.threitol,metabolomics
+Factor1,0.180549289752955,D.xylose,metabolomics
+Factor1,-0.136087629477194,Impurity.001,metabolomics
+Factor1,0.0838036903234722,L.allothreonine,metabolomics
+Factor1,0.119147842677157,L.asparagine.15N2.d8,metabolomics
+Factor1,0.080598792120552,L.isoleucine,metabolomics
+Factor1,0.13332658210811,L.phenylalanine,metabolomics
+Factor1,0.196404899497633,L.threonine,metabolomics
+Factor1,0.110932998001574,N.acetyl.L.cysteine,metabolomics
+Factor1,0.128883048738024,TE,metabolomics
+Factor1,0.0350699942848568,arabitol,metabolomics
+Factor1,-0.145877415129489,catechol,metabolomics
+Factor1,0.0952272967620906,estriol,metabolomics
+Factor1,0.0991619480597695,ethyl.glucuronide,metabolomics
+Factor1,0.162177677970619,galactitol,metabolomics
+Factor1,0.16465738657992,galactonic.acid,metabolomics
+Factor1,0.138128651138956,glucoheptonic.acid,metabolomics
+Factor1,-0.0109555110361662,glucosamine.1.phosphate,metabolomics
+Factor1,0.110309390978261,glycerol,metabolomics
+Factor1,0.146501082195837,homogentisic.acid,metabolomics
+Factor1,0.0838113558199868,isomaltose,metabolomics
+Factor1,0.199654577878668,lactobionic.acid,metabolomics
+Factor1,0.0158098060739332,lactose,metabolomics
+Factor1,0.145661563124042,maltose,metabolomics
+Factor1,0.179936830221993,melibiose,metabolomics
+Factor1,0.146598421017164,myo.inositol,metabolomics
+Factor1,0.206987421814569,oxalacetic.acid,metabolomics
+Factor1,0.178882005828986,propylene.glycol,metabolomics
+Factor1,0.109634812949711,pyrogallol,metabolomics
+Factor1,0.11914767539494,scyllo.inositol,metabolomics
+Factor1,0.118270689034663,sucrose,metabolomics
+Factor1,0.136226124086634,tartaric.acid,metabolomics
+Factor1,0.102121858261083,trans.3.hexenedioic.acid,metabolomics
+Factor1,0.0170672581571682,trans.aconitic.acid,metabolomics
+Factor1,-0.0698000574035915,trehalose,metabolomics
+Factor1,0.0891541510600405,turanose,metabolomics
+Factor1,0.0704763714096124,cellobiose,metabolomics
+Factor1,0.27337101209449,X6.deoxy.D.glucose,metabolomics
+Factor1,0,Cer.16.0.2O,lipidomics positive
+Factor1,0,Cer.34.0.2O,lipidomics positive
+Factor1,0.393267732307085,Cer.34.0.3O,lipidomics positive
+Factor1,0.519155039797744,Cer.34.1.3O,lipidomics positive
+Factor1,0,Cer.35.0.2O,lipidomics positive
+Factor1,0,Cer.35.0.3O,lipidomics positive
+Factor1,0,Cer.35.3.2O,lipidomics positive
+Factor1,0,Cer.36.0.2O,lipidomics positive
+Factor1,0,Cer.36.3.2O,lipidomics positive
+Factor1,0,Cer.38.0.3O,lipidomics positive
+Factor1,0,Cer.38.3.2O,lipidomics positive
+Factor1,0,Cer.39.1.4O,lipidomics positive
+Factor1,0,Cer.41.1.4O,lipidomics positive
+Factor1,0,Cer.42.0.3O,lipidomics positive
+Factor1,0,Cer.42.1.3O,lipidomics positive
+Factor1,0,Cer.43.1.4O,lipidomics positive
+Factor1,0,Cer.44.0.3O,lipidomics positive
+Factor1,0,Cer.44.0.4O,lipidomics positive
+Factor1,0,Cer.44.1.4O,lipidomics positive
+Factor1,0,DG.30.0,lipidomics positive
+Factor1,0,DG.30.1,lipidomics positive
+Factor1,0,DG.31.1,lipidomics positive
+Factor1,0,DG.32.0,lipidomics positive
+Factor1,0,DG.32.1,lipidomics positive
+Factor1,0,DG.32.2,lipidomics positive
+Factor1,0,DG.33.0,lipidomics positive
+Factor1,0,DG.33.1,lipidomics positive
+Factor1,0,DG.34.0,lipidomics positive
+Factor1,0,DG.34.1,lipidomics positive
+Factor1,0.61551315445205,DG.34.2,lipidomics positive
+Factor1,0,DG.34.3,lipidomics positive
+Factor1,0,DG.35.1,lipidomics positive
+Factor1,0,DG.36.1,lipidomics positive
+Factor1,0,DG.36.2,lipidomics positive
+Factor1,0,DG.36.3,lipidomics positive
+Factor1,0.00656912103356909,DG.36.4,lipidomics positive
+Factor1,0,DG.36.5,lipidomics positive
+Factor1,0,DG.36.6,lipidomics positive
+Factor1,0,DG.37.0,lipidomics positive
+Factor1,0,DG.38.2,lipidomics positive
+Factor1,0,DG.56.12,lipidomics positive
+Factor1,0,DGCC.32.1,lipidomics positive
+Factor1,0.268722636820354,DGCC.36.2,lipidomics positive
+Factor1,0,DGDG.36.5,lipidomics positive
+Factor1,0,DGTS.32.1,lipidomics positive
+Factor1,0,DGTS.34.1,lipidomics positive
+Factor1,0,DGTS.36.1,lipidomics positive
+Factor1,0.285947696625753,DGTS.38.2,lipidomics positive
+Factor1,0,LDGCC.32.2,lipidomics positive
+Factor1,0,LDGCC.34.2,lipidomics positive
+Factor1,0,LDGCC.36.2,lipidomics positive
+Factor1,0,MG.16.0,lipidomics positive
+Factor1,0,MG.16.1,lipidomics positive
+Factor1,0,MG.17.0,lipidomics positive
+Factor1,0,MG.18.1,lipidomics positive
+Factor1,0,MG.18.2,lipidomics positive
+Factor1,0,PC.33.2,lipidomics positive
+Factor1,0,PC.34.2,lipidomics positive
+Factor1,0,PC.35.1,lipidomics positive
+Factor1,0,PC.35.2,lipidomics positive
+Factor1,0,PC.36.2,lipidomics positive
+Factor1,0,PC.37.2,lipidomics positive
+Factor1,0,PC.38.2,lipidomics positive
+Factor1,0,PE.32.0,lipidomics positive
+Factor1,0,PE.33.2,lipidomics positive
+Factor1,0,PE.38.6,lipidomics positive
+Factor1,0,TG.44.2,lipidomics positive
+Factor1,0,TG.46.3,lipidomics positive
+Factor1,0,TG.47.1,lipidomics positive
+Factor1,0,TG.47.2,lipidomics positive
+Factor1,0,TG.47.3,lipidomics positive
+Factor1,0,TG.48.3,lipidomics positive
+Factor1,0.0410327878232587,TG.49.3,lipidomics positive
+Factor1,0,TG.50.6,lipidomics positive
+Factor1,0,TG.51.6,lipidomics positive
+Factor1,0.203118951115284,Cer.28.0.2O,lipidomics positive
+Factor1,0,Cer.33.0.2O,lipidomics positive
+Factor1,0,Cer.34.1.2O,lipidomics positive
+Factor1,0,Cer.36.2.2O,lipidomics positive
+Factor1,0,Cer.37.0.3O,lipidomics positive
+Factor1,0,TG.49.2,lipidomics positive
+Factor1,0.0532991950636505,Cer.34.0.2O.1,lipidomics negative
+Factor1,0,Cer.36.0.3O,lipidomics negative
+Factor1,0.390589944001135,Cer.36.0.4O,lipidomics negative
+Factor1,0,Cer.37.0.3O.1,lipidomics negative
+Factor1,0.519368322266093,Cer.39.1.4O.1,lipidomics negative
+Factor1,0,Cer.40.0.3O,lipidomics negative
+Factor1,0.0711427427051102,Cer.41.1.4O.1,lipidomics negative
+Factor1,0,Cer.42.0.3O.1,lipidomics negative
+Factor1,0.359297652854387,Cer.42.1.3O.1,lipidomics negative
+Factor1,0,Cer.43.1.4O.1,lipidomics negative
+Factor1,0,Cer.44.0.3O.1,lipidomics negative
+Factor1,0,Cer.45.0.2O,lipidomics negative
+Factor1,-0.177290776641833,FA.16.0,lipidomics negative
+Factor1,0.164307558588678,FA.16.1,lipidomics negative
+Factor1,0.193792117789737,FA.17.0,lipidomics negative
+Factor1,0.0924969405356613,FA.18.0,lipidomics negative
+Factor1,0,FA.18.1,lipidomics negative
+Factor1,0,FA.18.2,lipidomics negative
+Factor1,0.198949106294624,FA.21.0,lipidomics negative
+Factor1,0,FA.22.0,lipidomics negative
+Factor1,0,FA.23.0,lipidomics negative
+Factor1,-0.107306619792356,FA.28.0,lipidomics negative
+Factor1,-0.144569261207373,FA.30.0,lipidomics negative
+Factor1,0,FA.34.0,lipidomics negative
+Factor1,0,FA.34.6,lipidomics negative
+Factor1,-0.0679585164675449,FA.35.0,lipidomics negative
+Factor1,0,FA.36.2,lipidomics negative
+Factor1,-0.0712801180615614,FA.44.0,lipidomics negative
+Factor1,0,HexCer.33.5.2O,lipidomics negative
+Factor1,0.3142477977309,PE.33.2.1,lipidomics negative
+Factor1,0.393242086678374,PG.32.0,lipidomics negative
+Factor1,0.0327585215707337,FA.41.0,lipidomics negative
+Factor1,0,HexCer.49.6.2O,lipidomics negative
+Factor1,0,Cer.34.1.2O.1,lipidomics negative

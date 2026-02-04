@@ -1,0 +1,24 @@
+View,Feature,Absolute Weight,Rank
+lipidomics positive,LDGCC 34:2,0.0167231400882883,1
+lipidomics positive,DGTS 34:1,0.0149300477487486,2
+metabolomics,L-allothreonine,0.0132108618490747,3
+lipidomics positive,LDGCC 32:2,0.00861462739703711,4
+lipidomics positive,PC 33:2,0.0082590724050533,5
+lipidomics positive,Cer 34:1;3O,0.00814864835410845,6
+lipidomics positive,DGTS 38:2,0.00792400624777656,7
+lipidomics positive,Cer 36:0;2O,0.00763948735766462,8
+metabolomics,sucrose,0.00684801089664688,9
+metabolomics,isomaltose,0.00681584353515063,10
+lipidomics positive,MG 16:1,0.0065556213085074,11
+lipidomics positive,Cer 41:1;4O,0.00655429534526775,12
+lipidomics positive,PC 37:2,0.00608912745565249,13
+metabolomics,glycerol,0.00600238559309219,14
+lipidomics positive,PE 33:2,0.0057462213699182,15
+lipidomics positive,DG 34:1,0.0055684796825517,16
+metabolomics,D-glucose,0.00544476019967988,17
+metabolomics,(+)-6-aminopenicillanic acid,0.0053723799137515,18
+lipidomics positive,Cer 35:0;2O,0.00506423784629817,19
+metabolomics,D-xylose,0.00486949841570095,20
+lipidomics positive,MG 18:1,0.0047098501356686,21
+lipidomics negative,FA 18:2,0.00454004928906215,22
+lipidomics positive,Cer 39:1;4O,0.00439409811860969,23

@@ -1,0 +1,170 @@
+View,Feature,Absolute Weight,Rank
+metabolomics,D-fructose_metab,0.26147805779414,1
+metabolomics,D-glucose_metab,0.23726595675218,2
+metabolomics,sucrose_metab,0.220866989825678,3
+metabolomics,trehalose_metab,0.136223697935056,4
+metabolomics,D-mannitol_metab,0.135698625747999,5
+metabolomics,myo-inositol_metab,0.122145766687397,6
+metabolomics,D-mannose_metab,0.107013829363628,7
+metabolomics,cellobiose_metab,0.106323588656639,8
+metabolomics,galactitol_metab,0.105690626295172,9
+metabolomics,D-xylose_metab,0.104454520759961,10
+metabolomics,lactobionic acid_metab,0.0971597058635699,11
+metabolomics,maltose_metab,0.0931851032752135,12
+metabolomics,arabitol_metab,0.0895912634307217,13
+metabolomics,2-methyl-3-hydroxybutyric acid_metab,0.0828993187610743,14
+metabolomics,melibiose_metab,0.0815438523311618,15
+metabolomics,L-allothreonine_metab,0.0808393966588569,16
+metabolomics,D-gluconic acid_metab,0.0789266136510868,17
+metabolomics,D-glucosaminic acid_metab,0.0738792055021408,18
+metabolomics,lactose_metab,0.0674104917439389,19
+metabolomics,galactonic acid_metab,0.0581636389460118,20
+metabolomics,estriol_metab,0.053203817057562,21
+metabolomics,ethyl glucuronide_metab,0.0528645950994736,22
+metabolomics,N-acetyl-L-cysteine_metab,0.050667405056721,23
+metabolomics,L-isoleucine_metab,0.0483589449472255,24
+metabolomics,D-ribose_metab,0.0455104198583233,25
+metabolomics,glycerol_metab,0.0401958814346382,26
+metabolomics,6-deoxy-D-glucose_metab,0.0396192937780283,27
+metabolomics,3-hydroxyisobutyric acid_metab,0.0366486263887833,28
+metabolomics,propylene glycol_metab,0.0343681644108605,29
+metabolomics,1-methyladenosine_metab,0.0314956519988348,30
+metabolomics,isomaltose_metab,0.0285957191308052,31
+metabolomics,glucosamine-1-phosphate_metab,0.027813361568245,32
+metabolomics,3-hydroxyisovaleric acid_metab,0.0277810570476559,33
+metabolomics,catechol_metab,0.0222128645530399,34
+metabolomics,glucoheptonic acid_metab,0.0214099677227271,35
+metabolomics,trans-aconitic acid_metab,0.0208980086334809,36
+metabolomics,L-phenylalanine_metab,0.0191792848703875,37
+metabolomics,oxalacetic acid_metab,0.0190158208522239,38
+metabolomics,turanose_metab,0.0172435317906989,39
+metabolomics,L-threonine_metab,0.0165780586741039,40
+metabolomics,(+)-6-aminopenicillanic acid_metab,0.0165125281579637,41
+metabolomics,D-threitol_metab,0.0155521699511172,42
+metabolomics,L-asparagine-15N2,d8_metab,0.0147398851768386,43
+metabolomics,3-(1-pyrazolyl)-L-alanine_metab,0.0128431247761853,44
+metabolomics,scyllo-inositol_metab,0.0105109599177179,45
+metabolomics,3-oxoadipic acid_metab,0.00927766984232943,46
+metabolomics,trans-3-hexenedioic acid_metab,0.00828352069500349,47
+metabolomics,1,3-dihydroxyacetone_metab,0.00820727061175544,48
+metabolomics,tartaric acid_metab,0.0081162681595266,49
+metabolomics,homogentisic acid_metab,0.00778818252351839,50
+metabolomics,D-malic acid_metab,0.00621720395472079,51
+metabolomics,TE_metab,0.00372198098073342,52
+metabolomics,Impurity 001_metab,0.00247411918303601,53
+metabolomics,pyrogallol_metab,4.41266735683184e-05,54
+lipidomics positive,Cer 16:0;2O_lippos,0,55
+lipidomics positive,Cer 34:0;2O_lippos,0,56
+lipidomics positive,Cer 34:0;3O_lippos,0,57
+lipidomics positive,Cer 34:1;3O_lippos,0,58
+lipidomics positive,Cer 35:0;2O_lippos,0,59
+lipidomics positive,Cer 35:0;3O_lippos,0,60
+lipidomics positive,Cer 35:3;2O_lippos,0,61
+lipidomics positive,Cer 36:0;2O_lippos,0,62
+lipidomics positive,Cer 36:3;2O_lippos,0,63
+lipidomics positive,Cer 38:0;3O_lippos,0,64
+lipidomics positive,Cer 38:3;2O_lippos,0,65
+lipidomics positive,Cer 39:1;4O_lippos,0,66
+lipidomics positive,Cer 41:1;4O_lippos,0,67
+lipidomics positive,Cer 42:0;3O_lippos,0,68
+lipidomics positive,Cer 42:1;3O_lippos,0,69
+lipidomics positive,Cer 43:1;4O_lippos,0,70
+lipidomics positive,Cer 44:0;3O_lippos,0,71
+lipidomics positive,Cer 44:0;4O_lippos,0,72
+lipidomics positive,Cer 44:1;4O_lippos,0,73
+lipidomics positive,DG 30:0_lippos,0,74
+lipidomics positive,DG 30:1_lippos,0,75
+lipidomics positive,DG 31:1_lippos,0,76
+lipidomics positive,DG 32:0_lippos,0,77
+lipidomics positive,DG 32:1_lippos,0,78
+lipidomics positive,DG 32:2_lippos,0,79
+lipidomics positive,DG 33:0_lippos,0,80
+lipidomics positive,DG 33:1_lippos,0,81
+lipidomics positive,DG 34:0_lippos,0,82
+lipidomics positive,DG 34:1_lippos,0,83
+lipidomics positive,DG 34:2_lippos,0,84
+lipidomics positive,DG 34:3_lippos,0,85
+lipidomics positive,DG 35:1_lippos,0,86
+lipidomics positive,DG 36:1_lippos,0,87
+lipidomics positive,DG 36:2_lippos,0,88
+lipidomics positive,DG 36:3_lippos,0,89
+lipidomics positive,DG 36:4_lippos,0,90
+lipidomics positive,DG 36:5_lippos,0,91
+lipidomics positive,DG 36:6_lippos,0,92
+lipidomics positive,DG 37:0_lippos,0,93
+lipidomics positive,DG 38:2_lippos,0,94
+lipidomics positive,DG 56:12_lippos,0,95
+lipidomics positive,DGCC 32:1_lippos,0,96
+lipidomics positive,DGCC 36:2_lippos,0,97
+lipidomics positive,DGDG 36:5_lippos,0,98
+lipidomics positive,DGTS 32:1_lippos,0,99
+lipidomics positive,DGTS 34:1_lippos,0,100
+lipidomics positive,DGTS 36:1_lippos,0,101
+lipidomics positive,DGTS 38:2_lippos,0,102
+lipidomics positive,LDGCC 32:2_lippos,0,103
+lipidomics positive,LDGCC 34:2_lippos,0,104
+lipidomics positive,LDGCC 36:2_lippos,0,105
+lipidomics positive,MG 16:0_lippos,0,106
+lipidomics positive,MG 16:1_lippos,0,107
+lipidomics positive,MG 17:0_lippos,0,108
+lipidomics positive,MG 18:1_lippos,0,109
+lipidomics positive,MG 18:2_lippos,0,110
+lipidomics positive,PC 33:2_lippos,0,111
+lipidomics positive,PC 34:2_lippos,0,112
+lipidomics positive,PC 35:1_lippos,0,113
+lipidomics positive,PC 35:2_lippos,0,114
+lipidomics positive,PC 36:2_lippos,0,115
+lipidomics positive,PC 37:2_lippos,0,116
+lipidomics positive,PC 38:2_lippos,0,117
+lipidomics positive,PE 32:0_lippos,0,118
+lipidomics positive,PE 33:2_lippos,0,119
+lipidomics positive,PE 38:6_lippos,0,120
+lipidomics positive,TG 44:2_lippos,0,121
+lipidomics positive,TG 46:3_lippos,0,122
+lipidomics positive,TG 47:1_lippos,0,123
+lipidomics positive,TG 47:2_lippos,0,124
+lipidomics positive,TG 47:3_lippos,0,125
+lipidomics positive,TG 48:3_lippos,0,126
+lipidomics positive,TG 49:3_lippos,0,127
+lipidomics positive,TG 50:6_lippos,0,128
+lipidomics positive,TG 51:6_lippos,0,129
+lipidomics positive,Cer 28:0;2O_lippos,0,130
+lipidomics positive,Cer 33:0;2O_lippos,0,131
+lipidomics positive,Cer 34:1;2O_lippos,0,132
+lipidomics positive,Cer 36:2;2O_lippos,0,133
+lipidomics positive,Cer 37:0;3O_lippos,0,134
+lipidomics positive,TG 49:2_lippos,0,135
+lipidomics negative,Cer 34:0;2O_lipneg,0,136
+lipidomics negative,Cer 36:0;3O_lipneg,0,137
+lipidomics negative,Cer 36:0;4O_lipneg,0,138
+lipidomics negative,Cer 37:0;3O_lipneg,0,139
+lipidomics negative,Cer 39:1;4O_lipneg,0,140
+lipidomics negative,Cer 40:0;3O_lipneg,0,141
+lipidomics negative,Cer 41:1;4O_lipneg,0,142
+lipidomics negative,Cer 42:0;3O_lipneg,0,143
+lipidomics negative,Cer 42:1;3O_lipneg,0,144
+lipidomics negative,Cer 43:1;4O_lipneg,0,145
+lipidomics negative,Cer 44:0;3O_lipneg,0,146
+lipidomics negative,Cer 45:0;2O_lipneg,0,147
+lipidomics negative,FA 16:0_lipneg,0,148
+lipidomics negative,FA 16:1_lipneg,0,149
+lipidomics negative,FA 17:0_lipneg,0,150
+lipidomics negative,FA 18:0_lipneg,0,151
+lipidomics negative,FA 18:1_lipneg,0,152
+lipidomics negative,FA 18:2_lipneg,0,153
+lipidomics negative,FA 21:0_lipneg,0,154
+lipidomics negative,FA 22:0_lipneg,0,155
+lipidomics negative,FA 23:0_lipneg,0,156
+lipidomics negative,FA 28:0_lipneg,0,157
+lipidomics negative,FA 30:0_lipneg,0,158
+lipidomics negative,FA 34:0_lipneg,0,159
+lipidomics negative,FA 34:6_lipneg,0,160
+lipidomics negative,FA 35:0_lipneg,0,161
+lipidomics negative,FA 36:2_lipneg,0,162
+lipidomics negative,FA 44:0_lipneg,0,163
+lipidomics negative,HexCer 33:5;2O_lipneg,0,164
+lipidomics negative,PE 33:2_lipneg,0,165
+lipidomics negative,PG 32:0_lipneg,0,166
+lipidomics negative,FA 41:0_lipneg,0,167
+lipidomics negative,HexCer 49:6;2O_lipneg,0,168
+lipidomics negative,Cer 34:1;2O_lipneg,0,169

@@ -1,0 +1,170 @@
+View,Feature,Absolute Weight,Rank
+metabolomics,6-deoxy-D-glucose,0.299814900857921,1
+lipidomics positive,DG 34:2,0.121422554823287,2
+lipidomics negative,Cer 39:1;4O,0.108883521358919,3
+lipidomics positive,Cer 34:1;3O,0.0820144464947814,4
+lipidomics positive,Cer 34:0;3O,0.0797358310348924,5
+metabolomics,D-fructose,0.0425461793270911,6
+metabolomics,(+)-6-aminopenicillanic acid,0,7
+metabolomics,1,3-dihydroxyacetone,0,8
+metabolomics,1-methyladenosine,0,9
+metabolomics,2-methyl-3-hydroxybutyric acid,0,10
+metabolomics,3-(1-pyrazolyl)-L-alanine,0,11
+metabolomics,3-hydroxyisobutyric acid,0,12
+metabolomics,3-hydroxyisovaleric acid,0,13
+metabolomics,3-oxoadipic acid,0,14
+metabolomics,D-gluconic acid,0,15
+metabolomics,D-glucosaminic acid,0,16
+metabolomics,D-glucose,0,17
+metabolomics,D-malic acid,0,18
+metabolomics,D-mannitol,0,19
+metabolomics,D-mannose,0,20
+metabolomics,D-ribose,0,21
+metabolomics,D-threitol,0,22
+metabolomics,D-xylose,0,23
+metabolomics,Impurity 001,0,24
+metabolomics,L-allothreonine,0,25
+metabolomics,L-asparagine-15N2,d8,0,26
+metabolomics,L-isoleucine,0,27
+metabolomics,L-phenylalanine,0,28
+metabolomics,L-threonine,0,29
+metabolomics,N-acetyl-L-cysteine,0,30
+metabolomics,TE,0,31
+metabolomics,arabitol,0,32
+metabolomics,catechol,0,33
+metabolomics,estriol,0,34
+metabolomics,ethyl glucuronide,0,35
+metabolomics,galactitol,0,36
+metabolomics,galactonic acid,0,37
+metabolomics,glucoheptonic acid,0,38
+metabolomics,glucosamine-1-phosphate,0,39
+metabolomics,glycerol,0,40
+metabolomics,homogentisic acid,0,41
+metabolomics,isomaltose,0,42
+metabolomics,lactobionic acid,0,43
+metabolomics,lactose,0,44
+metabolomics,maltose,0,45
+metabolomics,melibiose,0,46
+metabolomics,myo-inositol,0,47
+metabolomics,oxalacetic acid,0,48
+metabolomics,propylene glycol,0,49
+metabolomics,pyrogallol,0,50
+metabolomics,scyllo-inositol,0,51
+metabolomics,sucrose,0,52
+metabolomics,tartaric acid,0,53
+metabolomics,trans-3-hexenedioic acid,0,54
+metabolomics,trans-aconitic acid,0,55
+metabolomics,trehalose,0,56
+metabolomics,turanose,0,57
+metabolomics,cellobiose,0,58
+lipidomics positive,Cer 16:0;2O,0,59
+lipidomics positive,Cer 34:0;2O,0,60
+lipidomics positive,Cer 35:0;2O,0,61
+lipidomics positive,Cer 35:0;3O,0,62
+lipidomics positive,Cer 35:3;2O,0,63
+lipidomics positive,Cer 36:0;2O,0,64
+lipidomics positive,Cer 36:3;2O,0,65
+lipidomics positive,Cer 38:0;3O,0,66
+lipidomics positive,Cer 38:3;2O,0,67
+lipidomics positive,Cer 39:1;4O,0,68
+lipidomics positive,Cer 41:1;4O,0,69
+lipidomics positive,Cer 42:0;3O,0,70
+lipidomics positive,Cer 42:1;3O,0,71
+lipidomics positive,Cer 43:1;4O,0,72
+lipidomics positive,Cer 44:0;3O,0,73
+lipidomics positive,Cer 44:0;4O,0,74
+lipidomics positive,Cer 44:1;4O,0,75
+lipidomics positive,DG 30:0,0,76
+lipidomics positive,DG 30:1,0,77
+lipidomics positive,DG 31:1,0,78
+lipidomics positive,DG 32:0,0,79
+lipidomics positive,DG 32:1,0,80
+lipidomics positive,DG 32:2,0,81
+lipidomics positive,DG 33:0,0,82
+lipidomics positive,DG 33:1,0,83
+lipidomics positive,DG 34:0,0,84
+lipidomics positive,DG 34:1,0,85
+lipidomics positive,DG 34:3,0,86
+lipidomics positive,DG 35:1,0,87
+lipidomics positive,DG 36:1,0,88
+lipidomics positive,DG 36:2,0,89
+lipidomics positive,DG 36:3,0,90
+lipidomics positive,DG 36:4,0,91
+lipidomics positive,DG 36:5,0,92
+lipidomics positive,DG 36:6,0,93
+lipidomics positive,DG 37:0,0,94
+lipidomics positive,DG 38:2,0,95
+lipidomics positive,DG 56:12,0,96
+lipidomics positive,DGCC 32:1,0,97
+lipidomics positive,DGCC 36:2,0,98
+lipidomics positive,DGDG 36:5,0,99
+lipidomics positive,DGTS 32:1,0,100
+lipidomics positive,DGTS 34:1,0,101
+lipidomics positive,DGTS 36:1,0,102
+lipidomics positive,DGTS 38:2,0,103
+lipidomics positive,LDGCC 32:2,0,104
+lipidomics positive,LDGCC 34:2,0,105
+lipidomics positive,LDGCC 36:2,0,106
+lipidomics positive,MG 16:0,0,107
+lipidomics positive,MG 16:1,0,108
+lipidomics positive,MG 17:0,0,109
+lipidomics positive,MG 18:1,0,110
+lipidomics positive,MG 18:2,0,111
+lipidomics positive,PC 33:2,0,112
+lipidomics positive,PC 34:2,0,113
+lipidomics positive,PC 35:1,0,114
+lipidomics positive,PC 35:2,0,115
+lipidomics positive,PC 36:2,0,116
+lipidomics positive,PC 37:2,0,117
+lipidomics positive,PC 38:2,0,118
+lipidomics positive,PE 32:0,0,119
+lipidomics positive,PE 33:2,0,120
+lipidomics positive,PE 38:6,0,121
+lipidomics positive,TG 44:2,0,122
+lipidomics positive,TG 46:3,0,123
+lipidomics positive,TG 47:1,0,124
+lipidomics positive,TG 47:2,0,125
+lipidomics positive,TG 47:3,0,126
+lipidomics positive,TG 48:3,0,127
+lipidomics positive,TG 49:3,0,128
+lipidomics positive,TG 50:6,0,129
+lipidomics positive,TG 51:6,0,130
+lipidomics positive,Cer 28:0;2O,0,131
+lipidomics positive,Cer 33:0;2O,0,132
+lipidomics positive,Cer 34:1;2O,0,133
+lipidomics positive,Cer 36:2;2O,0,134
+lipidomics positive,Cer 37:0;3O,0,135
+lipidomics positive,TG 49:2,0,136
+lipidomics negative,Cer 34:0;2O,0,137
+lipidomics negative,Cer 36:0;3O,0,138
+lipidomics negative,Cer 36:0;4O,0,139
+lipidomics negative,Cer 37:0;3O,0,140
+lipidomics negative,Cer 40:0;3O,0,141
+lipidomics negative,Cer 41:1;4O,0,142
+lipidomics negative,Cer 42:0;3O,0,143
+lipidomics negative,Cer 42:1;3O,0,144
+lipidomics negative,Cer 43:1;4O,0,145
+lipidomics negative,Cer 44:0;3O,0,146
+lipidomics negative,Cer 45:0;2O,0,147
+lipidomics negative,FA 16:0,0,148
+lipidomics negative,FA 16:1,0,149
+lipidomics negative,FA 17:0,0,150
+lipidomics negative,FA 18:0,0,151
+lipidomics negative,FA 18:1,0,152
+lipidomics negative,FA 18:2,0,153
+lipidomics negative,FA 21:0,0,154
+lipidomics negative,FA 22:0,0,155
+lipidomics negative,FA 23:0,0,156
+lipidomics negative,FA 28:0,0,157
+lipidomics negative,FA 30:0,0,158
+lipidomics negative,FA 34:0,0,159
+lipidomics negative,FA 34:6,0,160
+lipidomics negative,FA 35:0,0,161
+lipidomics negative,FA 36:2,0,162
+lipidomics negative,FA 44:0,0,163
+lipidomics negative,HexCer 33:5;2O,0,164
+lipidomics negative,PE 33:2,0,165
+lipidomics negative,PG 32:0,0,166
+lipidomics negative,FA 41:0,0,167
+lipidomics negative,HexCer 49:6;2O,0,168
+lipidomics negative,Cer 34:1;2O,0,169
