@@ -1,7 +1,7 @@
 numpy==1.25.0
 pandas
 scikit-learn
-torch==2.0.1
+torch==2.13.0
 shap==0.43
 seaborn
 matplotlib
